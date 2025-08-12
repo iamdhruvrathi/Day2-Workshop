@@ -1,0 +1,14 @@
+  itineraryBody.innerHTML = "";
+
+  
+  const rows = content.split("\n").filter(line =>
+    line && !/\\boxed|undefined|{|}/.test(line)
+  );
+
+
+// Clear any old itinerary rows before adding new ones
+// Split the AI's response into lines (one activity per line)
+  // Then filter out:
+  //  - empty lines (`line && ...`)
+  //  - unwanted text like "\boxed", "undefined", "{" or "}" using a regular expression
+
