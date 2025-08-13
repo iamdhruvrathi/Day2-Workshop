@@ -1,14 +1,27 @@
-  itineraryBody.innerHTML = "";
+const itineraryBody = document.getElementById("itineraryBody");
+    itineraryBody.innerHTML = "";
 
-  
-  const rows = content.split("\n").filter(line =>
-    line && !/\\boxed|undefined|{|}/.test(line)
-  );
+    const lines = content
+      .split("\n")
+      .filter(
+        (line) =>
+          line.trim() &&
+          !line.includes("\\boxed") &&
+          !line.includes("undefined") &&
+          !line.includes("{") &&
+          !line.includes("}")
+      );
 
 
-// Clear any old itinerary rows before adding new ones
-// Split the AI's response into lines (one activity per line)
-  // Then filter out:
-  //  - empty lines (`line && ...`)
-  //  - unwanted text like "\boxed", "undefined", "{" or "}" using a regular expression
+//Clears any previous rows from the table before adding new ones.
 
+//content.split("\n")
+    //Splits the AI-generated text into separate lines (each line corresponds to one activity).
+
+//.filter(...)
+    // Filters out lines we don’t want:
+     // Empty lines (checked by `line.trim()`)
+     // Lines containing `\boxed` (LaTeX formatting)
+     // Lines containing `undefined`
+     // Lines containing `{` or `}` (other unwanted characters)
+   // This ensures we only keep clean, valid itinerary lines to display in the table.
